@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio | Class Assignments</title>
+    <!-- Tailwind CSS for clean, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display for an editorial, elegant aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-stone-50 overflow-x-hidden">
+
+   
+          STARTUP / SPLASH SCREEN -->
+    <div id="startup-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-stone-900 text-stone-50 transition-all duration-1000 ease-in-out px-6">
+        <div class="max-w-xl text-center space-y-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-stone-400 animate-pulse">Academic Archive &bull; 2026</p>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl font-medium tracking-tight leading-tight">
+                Hadif
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-stone-300 text-sm sm:text-base font-light max-w-md mx-auto leading-relaxed">
+                A curated collection of coursework and assignments.
+            </p>
+
+            <!-- Enter Portfolio Button -->
+            <div class="pt-4">
+                <button id="enter-btn" class="group relative inline-flex items-center gap-3 px-8 py-3.5 text-sm font-medium tracking-wide text-stone-900 bg-stone-50 rounded-full hover:bg-stone-200 transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none">
+                    <span>Enter Portfolio</span>
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         2. MAIN PORTFOLIO CONTENT
+         ========================================== -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+        
+        <!-- Minimalist Navigation Bar -->
+        <header class="sticky top-0 z-30 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/60">
+            <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#" class="font-serif text-xl font-semibold tracking-tight text-stone-900">
+                    A. Mercer
+                </a>
+                <nav class="flex items-center gap-6 sm:gap-8 text-sm text-stone-600">
+                    <a href="#assignments" class="hover:text-stone-900 transition-colors">Assignments</a>
+                    <a href="#about" class="hover:text-stone-900 transition-colors">About</a>
+                    <button id="replay-intro" class="text-xs px-3 py-1.5 rounded-full border border-stone-300 hover:border-stone-900 hover:text-stone-900 transition-colors">
+                        Replay Intro
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+            <div class="max-w-2xl space-y-5">
+                <span class="inline-block text-xs font-medium uppercase tracking-widest text-stone-500">
+                    B.Sc. Computer Science &amp; Design
+                </span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-stone-900 leading-[1.15]">
+                    Selected Class Assignments &amp; Coursework.
+                </h2>
+                <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+                    Welcome to my digital binder. Below you will find structured submissions, coding labs, and essays completed throughout the current semester.
+                </p>
+            </div>
+        </section>
+
+        <!-- Assignments Section -->
+        <section id="assignments" class="max-w-5xl mx-auto px-6 pb-24">
+            
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-stone-200 mb-10">
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 text-xs font-medium rounded-full bg-stone-900 text-stone-50 transition-all">
+                        All Work
+                    </button>
+                    <button data-filter="Web Development" class="filter-btn px-4 py-2 text-xs font-medium rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">
+                        Web Development
+                    </button>
+                    <button data-filter="Algorithms" class="filter-btn px-4 py-2 text-xs font-medium rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">
+                        Algorithms
+                    </button>
+                    <button data-filter="UI/UX Design" class="filter-btn px-4 py-2 text-xs font-medium rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">
+                        UI/UX Design
+                    </button>
+                </div>
+                <span id="assignment-count" class="text-xs text-stone-400">Showing 4 assignments</span>
+            </div>
+
+            <!-- Assignments Grid -->
+            <div id="assignments-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Cards are dynamically injected by JavaScript for easy editing -->
+            </div>
+        </section>
+
+        <!-- Clean About / Footer Section -->
+        <footer id="about" class="border-t border-stone-200 bg-white">
+            <div class="max-w-5xl mx-auto px-6 py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+                <div class="space-y-2 max-w-md">
+                    <h3 class="font-serif text-xl font-medium text-stone-900">Student Information</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">
+                       Hadif &bull; Student ID: CRM24070<br>
+                       Semester 5 &bull; Creative Multimedia
+                    </p>
+                </div>
+                <div class="flex flex-col sm:items-end gap-2">
+                    <button id="copy-email-btn" class="text-sm font-medium text-stone-900 underline underline-offset-4 hover:text-stone-600 transition-colors">
+                       hadif@student.gmi.edu.my
+                    </button>
+                    <span id="copy-feedback" class="text-xs text-emerald-600 opacity-0 transition-opacity duration-300">
+                        Email copied to clipboard!
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==========================================
+         3. ASSIGNMENT DETAIL MODAL
+         ========================================== -->
+    <div id="assignment-modal" class="fixed inset-0 z-40 hidden items-center justify-center p-4 sm:p-6 bg-stone-900/40 backdrop-blur-sm transition-opacity">
+        <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-stone-200 overflow-hidden transform transition-all">
+            <!-- Modal Header -->
+            <div class="px-6 py-5 border-b border-stone-100 flex items-center justify-between">
+                <span id="modal-course" class="text-xs font-medium uppercase tracking-wider text-stone-500">Course Code</span>
+                <button id="close-modal" class="p-2 text-stone-400 hover:text-stone-900 rounded-full hover:bg-stone-100 transition-colors" aria-label="Close modal">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <div>
+                    <div class="flex items-center gap-3 text-xs text-stone-400 mb-2">
+                        <span id="modal-date">Date</span>
+                        <span>&bull;</span>
+                        <span id="modal-grade" class="text-stone-700 font-medium">Status</span>
+                    </div>
+                    <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-medium text-stone-900">Assignment Title</h3>
+                </div>
+
+                <p id="modal-description" class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                    Detailed description goes here.
+                </p>
+
+                <!-- Key Takeaways / Deliverables -->
+                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200/60 space-y-2">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-700">Deliverables &amp; Tools</h4>
+                    <p id="modal-tools" class="text-sm text-stone-600">HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 bg-stone-50 border-t border-stone-100 flex justify-end gap-3">
+                <button id="close-modal-bottom" class="px-5 py-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                    Close
+                </button>
+                <a id="modal-link" href="#" target="_blank" class="px-5 py-2 text-sm font-medium bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors">
+                    Open Project File
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         4. JAVASCRIPT LOGIC
+         ========================================== -->
+    <script>
+        // --- EASY TO EDIT: YOUR CLASS ASSIGNMENTS DATA ---
+        // Simply add, edit, or remove objects in this list to update your portfolio!
+        const assignments = [
+            {
+                id: 1,
+                number: "01",
+                course: "CS101 • Web Development",
+                category: "Web Development",
+                title: "Responsive Semantic Webpage",
+                date: "September 18, 2026",
+                grade: "Submitted • Grade: A",
+                summary: "Built a fully accessible, mobile-first article layout using semantic HTML5 tags and modern CSS Grid without external frameworks.",
+                tools: "HTML5, CSS3 Grid/Flexbox, W3C Validator",
+                link: "#" // Replace '#' with your GitHub link or local file path (e.g., './assignment1.html')
+            },
+            {
+                id: 2,
+                number: "02",
+                course: "CS204 • Algorithms",
+                category: "Algorithms",
+                title: "Sorting Visualizer & Complexity Analysis",
+                date: "October 04, 2026",
+                grade: "Submitted • Grade: A+",
+                summary: "Interactive visualization comparing Merge Sort, Quick Sort, and Bubble Sort time complexities across randomized datasets.",
+                tools: "JavaScript (ES6), HTML5 Canvas, Big-O Analysis",
+                link: "#"
+            },
+            {
+                id: 3,
+                number: "03",
+                course: "DES110 • UI/UX Design",
+                category: "UI/UX Design",
+                title: "Campus Navigation Wireframes",
+                date: "October 22, 2026",
+                grade: "Submitted • Grade: A",
+                summary: "Conducted user interviews with 15 freshmen to redesign the university wayfinding mobile interface with high-contrast accessibility.",
+                tools: "Figma, User Research, Interactive Prototyping",
+                link: "#"
+            },
+            {
+                id: 4,
+                number: "04",
+                course: "CS101 • Web Development",
+                category: "Web Development",
+                title: "REST API Weather Dashboard",
+                date: "November 10, 2026",
+                grade: "Completed",
+                summary: "Fetched real-time meteorological data using asynchronous JavaScript (Fetch API) with clean error handling and local storage caching.",
+                tools: "JavaScript Async/Await, JSON, OpenWeather API",
+                link: "#"
+            }
+        ];
+
+        // --- DOM ELEMENTS ---
+        const startupScreen = document.getElementById('startup-screen');
+        const enterBtn = document.getElementById('enter-btn');
+        const replayIntroBtn = document.getElementById('replay-intro');
+        const mainContent = document.getElementById('main-content');
+        const grid = document.getElementById('assignments-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const countLabel = document.getElementById('assignment-count');
+
+        // Modal Elements
+        const modal = document.getElementById('assignment-modal');
+        const closeModalBtns = [document.getElementById('close-modal'), document.getElementById('close-modal-bottom')];
+
+        // --- 1. STARTUP SCREEN LOGIC ---
+        function enterPortfolio() {
+            // Slide and fade out startup screen
+            startupScreen.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            // Fade in main content
+            mainContent.classList.remove('opacity-0');
+            mainContent.classList.add('opacity-100');
+        }
+
+        function replayIntro() {
+            startupScreen.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mainContent.classList.remove('opacity-100');
+            mainContent.classList.add('opacity-0');
+        }
+
+        enterBtn.addEventListener('click', enterPortfolio);
+        replayIntroBtn.addEventListener('click', replayIntro);
+
+        // --- 2. RENDER ASSIGNMENTS ---
+        function renderAssignments(filter = 'all') {
+            grid.innerHTML = '';
+            
+            const filtered = filter === 'all' 
+                ? assignments 
+                : assignments.filter(item => item.category === filter);
+
+            countLabel.textContent = `Showing ${filtered.length} assignment${filtered.length === 1 ? '' : 's'}`;
+
+            filtered.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'group bg-white p-7 sm:p-8 rounded-2xl border border-stone-200/80 hover:border-stone-400 transition-all duration-300 flex flex-col justify-between cursor-pointer hover:shadow-sm';
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs text-stone-400">
+                            <span class="font-medium text-stone-500">${item.course}</span>
+                            <span class="font-serif italic text-sm text-stone-400">${item.number}</span>
+                        </div>
+                        <h3 class="font-serif text-xl sm:text-2xl font-medium text-stone-900 group-hover:text-stone-700 transition-colors">
+                            ${item.title}
+                        </h3>
+                        <p class="text-sm text-stone-600 leading-relaxed line-clamp-3">
+                            ${item.summary}
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between text-xs">
+                        <span class="text-stone-400">${item.date}</span>
+                        <span class="font-medium text-stone-900 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            View Details &rarr;
+                        </span>
+                    </div>
+                `;
+
+                // Open modal when card is clicked
+                card.addEventListener('click', () => openModal(item));
+                grid.appendChild(card);
+            });
+        }
+
+        // --- 3. CATEGORY FILTERING ---
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset active styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-stone-900', 'text-stone-50');
+                    b.classList.add('bg-stone-100', 'text-stone-600');
+                });
+                // Set active style on clicked button
+                btn.classList.remove('bg-stone-100', 'text-stone-600');
+                btn.classList.add('bg-stone-900', 'text-stone-50');
+
+                renderAssignments(btn.getAttribute('data-filter'));
+            });
+        });
+
+        // --- 4. MODAL INTERACTIONS ---
+        function openModal(item) {
+            document.getElementById('modal-course').textContent = item.course;
+            document.getElementById('modal-date').textContent = item.date;
+            document.getElementById('modal-grade').textContent = item.grade;
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-description').textContent = item.summary;
+            document.getElementById('modal-tools').textContent = item.tools;
+            document.getElementById('modal-link').href = item.link;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        closeModalBtns.forEach(btn => btn.addEventListener('click', closeModal));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // --- 5. CLIPBOARD COPY FOR EMAIL ---
+        document.getElementById('copy-email-btn').addEventListener('click', function() {
+            const tempInput = document.createElement('input');
+            tempInput.value = this.textContent.trim();
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const feedback = document.getElementById('copy-feedback');
+            feedback.classList.remove('opacity-0');
+            setTimeout(() => feedback.classList.add('opacity-0'), 2500);
+        });
+
+        // Initialize portfolio grid on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAssignments();
+        });
+    </script>
+</body>
+</html>
